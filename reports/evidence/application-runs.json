@@ -1,0 +1,100 @@
+[
+  {
+    "label": "Single quote",
+    "command": "delivery quote ORD-101 30",
+    "exit_code": 0,
+    "stdout": "ORD-101 to Almaty: 1425.00 KZT\n",
+    "stderr": ""
+  },
+  {
+    "label": "Alternate policy",
+    "command": "delivery quote ORD-101 30 express",
+    "exit_code": 0,
+    "stdout": "ORD-101 to Almaty: 2850.00 KZT\n",
+    "stderr": ""
+  },
+  {
+    "label": "Batch pipeline",
+    "command": "delivery quotes 30",
+    "exit_code": 0,
+    "stdout": "3 orders | total: 8400.00 KZT | average: 2800.00 KZT\nORD-102 | Astana | 5225.00 KZT\nORD-104 | Karaganda | 1750.00 KZT\nORD-101 | Almaty | 1425.00 KZT\n",
+    "stderr": ""
+  },
+  {
+    "label": "Wrong operation sequence",
+    "command": "delivery complete SHP-ORD-101",
+    "exit_code": 1,
+    "stdout": "SHIPMENT_NOT_FOUND: Shipment 'SHP-ORD-101' was not found. Dispatch the order first.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Outside courier range",
+    "command": "delivery dispatch ORD-103 C-01",
+    "exit_code": 1,
+    "stdout": "OUTSIDE_COURIER_RANGE: Order 'ORD-103' exceeds courier 'C-01' range of 100 km.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Successful dispatch",
+    "command": "delivery dispatch ORD-101 C-01",
+    "exit_code": 0,
+    "stdout": "SHP-ORD-101 | ORD-101 | C-01 | InTransit | 1425.00 KZT | 30 min\n",
+    "stderr": ""
+  },
+  {
+    "label": "Duplicate dispatch",
+    "command": "delivery dispatch ORD-101 C-01",
+    "exit_code": 1,
+    "stdout": "ORDER_ALREADY_DISPATCHED: Order 'ORD-101' has already been dispatched.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Successful completion",
+    "command": "delivery complete SHP-ORD-101",
+    "exit_code": 0,
+    "stdout": "SHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min\n",
+    "stderr": ""
+  },
+  {
+    "label": "Repeated completion",
+    "command": "delivery complete SHP-ORD-101",
+    "exit_code": 0,
+    "stdout": "SHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min\n",
+    "stderr": ""
+  },
+  {
+    "label": "Reports and CSV",
+    "command": "delivery report quote-report.csv 30 40 0",
+    "exit_code": 0,
+    "stdout": "\nEligible order quotes:\nORD-102 | Astana | Express | 5225.00 KZT | 68 min\nORD-104 | Karaganda | Standard | 1750.00 KZT | 45 min\nORD-101 | Almaty | Standard | 1425.00 KZT | 30 min\n\nQuoted totals by mode (all eligible orders):\nExpress | 1 orders | 5225.00 KZT\nStandard | 2 orders | 3175.00 KZT\n\nCourier workload and delivered revenue:\nC-01 | Alibek | active: 0 | delivered: 1 | 0 kg | 1425.00 KZT\nC-02 | Dana | active: 0 | delivered: 0 | 0 kg | 0.00 KZT\nC-03 | Arman | active: 0 | delivered: 0 | 0 kg | 0.00 KZT\n\nSaved quote report: quote-report.csv\n",
+    "stderr": ""
+  },
+  {
+    "label": "Deferred execution demonstration",
+    "command": "delivery demo",
+    "exit_code": 0,
+    "stdout": "Demonstration uses a separate shipment list in memory.\nPipeline: 3 eligible orders, 8400.00 KZT total.\n\nQuote:\nORD-101: 1425.00 KZT\n\nComplete before dispatch:\nSHIPMENT_NOT_FOUND: Shipment 'SHP-ORD-101' was not found. Dispatch the order first.\n\nDispatch:\nSHP-ORD-101 | ORD-101 | C-01 | InTransit | 1425.00 KZT | 30 min\n\nDispatch again:\nORDER_ALREADY_DISPATCHED: Order 'ORD-101' has already been dispatched.\n\nComplete delivery:\nSHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min\n\nBefore enumeration: 0 pricing calls.\nAfter ToArray: 3 pricing calls for 3 orders.\nReused snapshot total: 8400.00; pricing calls: 3.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Invalid capacity",
+    "command": "delivery quote ORD-101 0",
+    "exit_code": 1,
+    "stdout": "INVALID_CAPACITY: Vehicle capacity must be greater than 0 kg; received 0 kg.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Malformed content",
+    "command": "delivery list",
+    "exit_code": 1,
+    "stdout": "MALFORMED_DATA: Invalid JSON in 'sample-data/couriers.json': Expected depth to be zero at the end of the JSON payload. There is an open JSON object or array that should be closed. Path: $[0] | LineNumber: 0 | BytePositionInLine: 1.\n",
+    "stderr": ""
+  },
+  {
+    "label": "Missing file",
+    "command": "delivery list",
+    "exit_code": 1,
+    "stdout": "FILE_NOT_FOUND: Orders file 'sample-data/orders.json' was not found.\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,4 @@
+OrderId,Destination,Mode,Cost,EstimatedMinutes
+ORD-102,Astana,Express,5225.00,68
+ORD-104,Karaganda,Standard,1750.00,45
+ORD-101,Almaty,Standard,1425.00,30

@@ -1,0 +1,11 @@
+[
+  {
+    "Id": "SHP-ORD-101",
+    "OrderId": "ORD-101",
+    "CourierId": "C-01",
+    "Cost": 1425,
+    "EstimatedMinutes": 30,
+    "DispatchedAtUtc": "2026-11-12T17:03:43.39704+00:00",
+    "DeliveredAtUtc": "2026-11-12T17:03:43.499069+00:00"
+  }
+]

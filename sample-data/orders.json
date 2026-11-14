@@ -1,0 +1,7 @@
+[
+  { "Id": "ORD-101", "Destination": "Almaty", "DistanceKm": 20, "WeightKg": 5, "Mode": "Standard" },
+  { "Id": "ORD-102", "Destination": "Astana", "DistanceKm": 45, "WeightKg": 12.5, "Mode": "Express" },
+  { "Id": "ORD-103", "Destination": "Shymkent", "DistanceKm": 150, "WeightKg": 50, "Mode": "Priority" },
+  { "Id": "ORD-104", "Destination": "Karaganda", "DistanceKm": 30, "WeightKg": 2, "Mode": "Standard" },
+  { "Id": "ORD-108", "Destination": "Kostanay", "DistanceKm": 200, "WeightKg": 45, "Mode": "Express" }
+]

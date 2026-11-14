@@ -1,0 +1,38 @@
+[
+  {
+    "page": 1,
+    "title": "DeliveryPipeline",
+    "scale": 1.0,
+    "spare_height": 53.8800048828125
+  },
+  {
+    "page": 2,
+    "title": "2. Architecture and functional design",
+    "scale": 1.0,
+    "spare_height": 55.37396240234375
+  },
+  {
+    "page": 3,
+    "title": "3. Workflows, validation and persistence",
+    "scale": 1.0,
+    "spare_height": 124.924072265625
+  },
+  {
+    "page": 4,
+    "title": "4. Reports and lazy processing",
+    "scale": 1.0,
+    "spare_height": 48.3460693359375
+  },
+  {
+    "page": 5,
+    "title": "5. Automated tests and results",
+    "scale": 0.998287996956439,
+    "spare_height": 0
+  },
+  {
+    "page": 6,
+    "title": "6. Setup, responsibilities and references",
+    "scale": 0.9965818458032663,
+    "spare_height": 2.818790350169558e-05
+  }
+]

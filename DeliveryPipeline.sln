@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryPipeline", "DeliveryPipeline\DeliveryPipeline.csproj", "{98C891B6-CCCA-45D1-93AF-AADEF5595257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryPipeline.Tests", "DeliveryPipeline.Tests\DeliveryPipeline.Tests.csproj", "{629C7A26-0AD9-4D2E-B17D-B25332BCD73E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98C891B6-CCCA-45D1-93AF-AADEF5595257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C891B6-CCCA-45D1-93AF-AADEF5595257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C891B6-CCCA-45D1-93AF-AADEF5595257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C891B6-CCCA-45D1-93AF-AADEF5595257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629C7A26-0AD9-4D2E-B17D-B25332BCD73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629C7A26-0AD9-4D2E-B17D-B25332BCD73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629C7A26-0AD9-4D2E-B17D-B25332BCD73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629C7A26-0AD9-4D2E-B17D-B25332BCD73E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

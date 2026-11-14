@@ -1,0 +1,4 @@
+[
+  { "Id": "ORD-101", "Destination": "Almaty", "DistanceKm": 20, "WeightKg": 5, "Mode": "Standard" },
+  { "Id": "ORD-102", "Destination":
+]

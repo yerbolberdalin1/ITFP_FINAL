@@ -1,0 +1,93 @@
+$ delivery quote ORD-101 30
+ORD-101 to Almaty: 1425.00 KZT
+Exit code: 0
+
+$ delivery quote ORD-101 30 express
+ORD-101 to Almaty: 2850.00 KZT
+Exit code: 0
+
+$ delivery quotes 30
+3 orders | total: 8400.00 KZT | average: 2800.00 KZT
+ORD-102 | Astana | 5225.00 KZT
+ORD-104 | Karaganda | 1750.00 KZT
+ORD-101 | Almaty | 1425.00 KZT
+Exit code: 0
+
+$ delivery complete SHP-ORD-101
+SHIPMENT_NOT_FOUND: Shipment 'SHP-ORD-101' was not found. Dispatch the order first.
+Exit code: 1
+
+$ delivery dispatch ORD-103 C-01
+OUTSIDE_COURIER_RANGE: Order 'ORD-103' exceeds courier 'C-01' range of 100 km.
+Exit code: 1
+
+$ delivery dispatch ORD-101 C-01
+SHP-ORD-101 | ORD-101 | C-01 | InTransit | 1425.00 KZT | 30 min
+Exit code: 0
+
+$ delivery dispatch ORD-101 C-01
+ORDER_ALREADY_DISPATCHED: Order 'ORD-101' has already been dispatched.
+Exit code: 1
+
+$ delivery complete SHP-ORD-101
+SHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min
+Exit code: 0
+
+$ delivery complete SHP-ORD-101
+SHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min
+Exit code: 0
+
+$ delivery report quote-report.csv 30 40 0
+
+Eligible order quotes:
+ORD-102 | Astana | Express | 5225.00 KZT | 68 min
+ORD-104 | Karaganda | Standard | 1750.00 KZT | 45 min
+ORD-101 | Almaty | Standard | 1425.00 KZT | 30 min
+
+Quoted totals by mode (all eligible orders):
+Express | 1 orders | 5225.00 KZT
+Standard | 2 orders | 3175.00 KZT
+
+Courier workload and delivered revenue:
+C-01 | Alibek | active: 0 | delivered: 1 | 0 kg | 1425.00 KZT
+C-02 | Dana | active: 0 | delivered: 0 | 0 kg | 0.00 KZT
+C-03 | Arman | active: 0 | delivered: 0 | 0 kg | 0.00 KZT
+
+Saved quote report: quote-report.csv
+Exit code: 0
+
+$ delivery demo
+Demonstration uses a separate shipment list in memory.
+Pipeline: 3 eligible orders, 8400.00 KZT total.
+
+Quote:
+ORD-101: 1425.00 KZT
+
+Complete before dispatch:
+SHIPMENT_NOT_FOUND: Shipment 'SHP-ORD-101' was not found. Dispatch the order first.
+
+Dispatch:
+SHP-ORD-101 | ORD-101 | C-01 | InTransit | 1425.00 KZT | 30 min
+
+Dispatch again:
+ORDER_ALREADY_DISPATCHED: Order 'ORD-101' has already been dispatched.
+
+Complete delivery:
+SHP-ORD-101 | ORD-101 | C-01 | Delivered | 1425.00 KZT | 30 min
+
+Before enumeration: 0 pricing calls.
+After ToArray: 3 pricing calls for 3 orders.
+Reused snapshot total: 8400.00; pricing calls: 3.
+Exit code: 0
+
+$ delivery quote ORD-101 0
+INVALID_CAPACITY: Vehicle capacity must be greater than 0 kg; received 0 kg.
+Exit code: 1
+
+$ delivery list
+MALFORMED_DATA: Invalid JSON in 'sample-data/couriers.json': Expected depth to be zero at the end of the JSON payload. There is an open JSON object or array that should be closed. Path: $[0] | LineNumber: 0 | BytePositionInLine: 1.
+Exit code: 1
+
+$ delivery list
+FILE_NOT_FOUND: Orders file 'sample-data/orders.json' was not found.
+Exit code: 1

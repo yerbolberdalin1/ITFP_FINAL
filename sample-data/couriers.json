@@ -1,0 +1,5 @@
+[
+  { "Id": "C-01", "Name": "Alibek", "CapacityKg": 30, "MaxDistanceKm": 100, "SpeedKmh": 40 },
+  { "Id": "C-02", "Name": "Dana", "CapacityKg": 100, "MaxDistanceKm": 500, "SpeedKmh": 60 },
+  { "Id": "C-03", "Name": "Arman", "CapacityKg": 15, "MaxDistanceKm": 30, "SpeedKmh": 30 }
+]
